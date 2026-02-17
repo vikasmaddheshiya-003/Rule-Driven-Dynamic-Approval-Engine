@@ -1,0 +1,64 @@
+
+ <zk>
+
+	<hbox align="center" pack="center" width="100%" 
+		style=" background-color: #B7AEC8;">
+		
+		<window zclass="container" vflex="1"
+			border="normal"
+			apply="com.bank.employee.controller.EmployeePendingTransactionController"
+			style="display:flex; flex-direction:column; height:100%;">
+			
+			<hbox pack="center" align="center">
+				<label value="Pending Transaction Requests"
+					style="font-weight:bold; font-size:20px;"/>
+			</hbox>
+
+			<space spacing="10px"/>
+
+			
+			<listbox id="requestList"
+				width="100%"
+				mold="paging"
+				pageSize="4"
+				vflex="1"
+				style="overflow:auto;"
+			>
+
+				<listhead>
+					<listheader label="Request Id" />
+					<listheader label="User ID" />
+					<listheader label="Account Number" />
+					<listheader label="Request Type" />
+					<listheader label="Amount" />
+					<listheader label="Requested At" />
+				</listhead>
+
+				<template name="model" var="each">
+					<listitem>
+						<listcell label="${each.requestId}" />
+						<listcell label="${each.userId}" />
+						<listcell label="${each.accountNumber}" />
+						<listcell label="${each.requestType}" />
+						<listcell label="${each.amount}" />
+						<listcell label="${each.createdAt}" />
+					</listitem>
+				</template>
+			</listbox>
+
+		
+			<hbox align="center" pack="end" hflex="1"
+	style="padding:3px; position:sticky; bottom:0; background-color:#B7AEC8;">
+
+				
+				<button id="approveBtn" label="Approve"
+					sclass="btn-primary" />
+				<space />
+				<button id="rejectBtn" label="Reject"
+					sclass="btn-primary" />
+			</hbox>
+
+		</window>
+	</hbox>
+
+</zk>

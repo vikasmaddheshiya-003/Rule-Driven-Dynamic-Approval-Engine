@@ -1,0 +1,32 @@
+<window title="Employee Login"
+        border="normal"
+        width="400px" 
+        closable="false"
+        style="padding:20px;"
+        position="center"
+        mode="modal"
+        apply="com.bank.employee.controller.EmployeeLoginPageController">
+
+    <vlayout spacing="15px" width="100%">
+
+        <label value="Email"/>
+        <textbox id="mailTB" width="100%"/>
+
+        <label value="Password"/>
+        <textbox id="passwordTB"
+                 type="password"
+                 width="100%"/>
+
+        <button id="loginBtn"
+                label="Login"
+                width="100%"/>
+
+       
+        <a id="adminLoginLink"
+           href="/user/userLoginPage.zul"
+           label="Login as User"
+           style="text-align:center; color:blue; cursor:pointer;"/>
+          
+    </vlayout>
+
+</window>

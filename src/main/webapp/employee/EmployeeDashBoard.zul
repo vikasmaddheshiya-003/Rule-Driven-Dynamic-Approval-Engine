@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+
+    <window 
+            border="normal"
+            width="100%"
+            height="100%"
+            apply="com.bank.employee.controller.EmployeeDashboardController"
+            >
+
+        <borderlayout width="100%" height="100%">
+
+         
+              <north size="60px">
+    <div style="padding:10px 15px;
+                background-color:#f4f6f8;
+                display:flex;
+                align-items:center;
+                justify-content:space-between;">
+
+      
+        <button label="Logout"
+                iconSclass="z-icon-sign-out"
+                id="logutBtn"
+                style="font-weight:bold;"
+                
+                 />
+
+     
+        <label value="My Bank Dashboard"
+               style="font-size:20px;font-weight:bold;" />
+    </div>
+</north>
+
+         
+            <west size="240px" splittable="true" collapsible="true">
+                <vlayout spacing="8px" style="padding:15px;">
+
+                    <label value="Menu"
+                           style="font-weight:bold;font-size:16px;" />
+
+                    <separator/>
+
+                    <div sclass="menu-item" id="pendingTxsDiv" >
+                        <label value="💸 Pending Transactions" />
+                    </div>
+
+                </vlayout>
+            </west>
+
+          
+            <center id="centerUserDsh">
+                <div  style="padding:25px;" height="100%">
+                  <div id="centerDiv">
+                    <label value="Welcome to Employee DashBoard..........."
+                           style="font-size:18px;font-weight:bold;" />
+                    <separator/>
+                    
+                    <label  value="Please select an option from the menu." />
+                                       
+                    </div>
+                      <include id="contentInclude1" />
+                </div>
+               
+            </center>
+
+        </borderlayout>
+    </window>
+
+  
+    <style>
+        .menu-item {
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            background-color: #e6f2ff;
+        }
+    </style>
+
+</zk>

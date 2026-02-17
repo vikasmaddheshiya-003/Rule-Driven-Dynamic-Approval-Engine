@@ -1,0 +1,118 @@
+<!-- 
+ <?page title="Transaction History" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window 
+       closable="false"
+       sizable="true"
+       vflex="1"
+       hflex="1"
+       title="Transaction History">
+
+        <vlayout spacing="10px" vflex="1" hflex="1">
+
+            Header
+            <hlayout width="100%" spacing="10px" style="align-items:center;">
+                <label value="💳 Transaction History"
+                       style="font-weight:bold; font-size:18px; color:#2b4b80;"/>
+                <button label="⟳ Refresh" sclass="btn-refresh" 
+                        style="background:#2563eb; color:white; border:none; border-radius:6px; padding:6px 12px; font-weight:600; cursor:pointer;"
+                        onClick='Executions.sendRedirect(null);'/>
+                <button id="btnDownloadPdf"
+                        label="📄 Download 3-Month Statement"
+                        style="background:#1e293b; color:white; border:none; border-radius:6px; padding:6px 12px; font-weight:600; cursor:pointer; margin-left:auto;"/>
+            </hlayout>
+
+            Date range filter
+            <hlayout width="100%" spacing="8px" style="margin-bottom:10px; align-items:center;">
+                <label value="📅 From:"/>
+                <datebox id="fromDate" width="150px"/>
+                <label value="To:"/>
+                <datebox id="toDate" width="150px"/>
+                <button id="filterBtn" label="Show Transactions"
+                        style="background:#16a34a; color:white; border:none; border-radius:6px; padding:6px 12px; font-weight:600; cursor:pointer;"/>
+            </hlayout>
+
+            Transaction list
+            <listbox id="transactionListbox"
+                     vflex="1"
+                     hflex="1"
+                     mold="paging"
+                     pageSize="10"
+                     sizedByContent="true"
+                     style="border:1px solid #ccc; border-radius:8px;">
+                <listhead>
+                    <listheader label="Transaction ID" width="120px"/>
+                    <listheader label="Txn Reference" width="150px"/>
+                    <listheader label="From Account" width="130px"/>
+                    <listheader label="To Account" width="130px"/>
+                    <listheader label="Beneficiary ID" width="120px"/>
+                    <listheader label="Amount" width="100px" align="right"/>
+                    <listheader label="Type" width="80px"/>
+                    <listheader label="Mode" width="100px"/>
+                    <listheader label="Balance After" width="120px" align="right"/>
+                    <listheader label="Status" width="100px"/>
+                    <listheader label="Remarks" width="190px"/>
+                    <listheader label="Created At" width="180px"/>
+                </listhead>
+            </listbox>
+        </vlayout>
+    </window>
+</zk> -->
+
+
+<window title="Transaction History"
+        border="normal"
+        closable="false"
+        sizable="true"
+        apply="com.bank.user.controller.UserTransactionController">
+
+    <vlayout width="100%" height="500px" spacing="10px" style="padding:15px;">
+
+        <!-- 🔍 FILTER SECTION -->
+        <hlayout spacing="10px">
+            <label value="From Date:" />
+            <datebox id="fromDate" format="yyyy-MM-dd" />
+
+            <label value="To Date:" />
+            <datebox id="toDate" format="yyyy-MM-dd" />
+
+            <button id="filterBtn" label="Filter" />
+        </hlayout>
+
+        <separator />
+
+        <!-- 📋 TRANSACTION LIST -->
+        <listbox id="txnList" width="100%" vflex="1">
+            <listhead>
+                <listheader label="Transaction ID" />
+                <listheader label="Request ID" />
+                <listheader label="User ID" />
+                <listheader label="Transaction Type" />
+                <listheader label="Direction" />
+                <listheader label="Amount" />
+                <listheader label="Balance Before" />
+                <listheader label="Balance After" />
+                <listheader label="Status" />
+                <listheader label="Created At" />
+            </listhead>
+
+            <!-- ✅ TEMPLATE -->
+            <template name="model">
+                <listitem>
+                    <listcell label="${each.transactionId}" />
+                    <listcell label="${each.requestId}" />
+                    <listcell label="${each.userId}" />
+                    <listcell label="${each.transactionType}" />
+                    <listcell label="${each.txnDirection}" />
+                    <listcell label="${each.amount}" />
+                    <listcell label="${each.balanceBefore}" />
+                    <listcell label="${each.balanceAfter}" />
+                    <listcell label="${each.status}" />
+                    <listcell label="${each.createdAt}" />
+                </listitem>
+            </template>
+
+        </listbox>
+    </vlayout>
+</window>
+

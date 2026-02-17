@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+    <window title="Create Request"
+            width="800px"
+            border="normal"
+            position="center"
+            apply="com.bank.user.controller.MakeTransactionComposer"
+            style="padding:20px">
+
+        <vlayout spacing="15px" width="100%">
+
+            <label value="Request Type"/>
+            <combobox id="requestTypeBox" width="100%" readonly="true">
+                <comboitem label="WITHDRAWAL"/>
+                <comboitem label="DEPOSIT"/>
+            </combobox>
+
+            <label value="Amount"/>
+            <textbox id="amountBox" width="100%" placeholder="Enter amount"/>
+
+            <button id="submitBtn" label="Submit Request"
+                    width="100%"
+                   />
+
+            <label id="msgLabel" style="color:green"/>
+
+        </vlayout>
+    </window>
+</zk>
